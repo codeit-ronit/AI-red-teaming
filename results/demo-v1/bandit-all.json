@@ -1,19 +1,19 @@
 {
   "errors": [],
-  "generated_at": "2026-10-30T05:08:17Z",
+  "generated_at": "2026-10-30T05:12:03Z",
   "metrics": {
     "_totals": {
-      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.HIGH": 0,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 1,
+      "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
       "loc": 2716,
       "nosec": 0,
-      "skipped_tests": 11
+      "skipped_tests": 12
     },
     "app/__init__.py": {
       "CONFIDENCE.HIGH": 0,
@@ -432,17 +432,17 @@
       "skipped_tests": 0
     },
     "scripts/capture_demo.py": {
-      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.HIGH": 0,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 1,
+      "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
       "loc": 75,
       "nosec": 0,
-      "skipped_tests": 3
+      "skipped_tests": 4
     },
     "scripts/render_demo.py": {
       "CONFIDENCE.HIGH": 0,
@@ -549,26 +549,5 @@
       "skipped_tests": 0
     }
   },
-  "results": [
-    {
-      "code": "32     # Read-only fixed Git command; no shell or model-controlled arguments.\n33     commit=subprocess.check_output([shutil.which('git'),'rev-parse','HEAD'],cwd=ROOT,text=True).strip()\n34     record('capture',{'recorded_at':datetime.now(ZoneInfo('Asia/Kolkata')).isoformat(),'source_commit':commit,\n",
-      "col_offset": 11,
-      "end_col_offset": 95,
-      "filename": "scripts/capture_demo.py",
-      "issue_confidence": "HIGH",
-      "issue_cwe": {
-        "id": 78,
-        "link": "https://cwe.mitre.org/data/definitions/78.html"
-      },
-      "issue_severity": "LOW",
-      "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 33,
-      "line_range": [
-        33
-      ],
-      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html",
-      "test_id": "B603",
-      "test_name": "subprocess_without_shell_equals_true"
-    }
-  ]
+  "results": []
 }

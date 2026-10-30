@@ -30,7 +30,7 @@ def main(output):
     provider=OllamaProvider(num_predict=768,retry_truncated=True,bounded_tools=True,max_content_chars=1000)
     model=provider.describe()
     # Read-only fixed Git command; no shell or model-controlled arguments.
-    commit=subprocess.check_output([shutil.which('git'),'rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    commit=subprocess.check_output([shutil.which('git'),'rev-parse','HEAD'],cwd=ROOT,text=True).strip()  # nosec B603
     record('capture',{'recorded_at':datetime.now(ZoneInfo('Asia/Kolkata')).isoformat(),'source_commit':commit,
                       'model':model['model'],'provider':'actual local Ollama; no scripted model fixture'})
     cases=json.loads((ROOT/'attacks/hardening-cases.json').read_text())
