@@ -1,0 +1,223 @@
+{
+  "manifest": {
+    "provider": "scripted",
+    "real_model": false,
+    "model_metadata": {
+      "provider": "scripted",
+      "real_model": false
+    },
+    "created_at": "2026-10-30T03:13:37.971941+00:00",
+    "python": "3.13.11",
+    "dataset_sha256": "ab493d9d3e1a30d42e9828768d841ca5f9000ff36c36e837746641e87a535c50",
+    "modes": [
+      "vulnerable",
+      "filtered",
+      "hardened"
+    ],
+    "runtime_versions": {
+      "fastapi": "0.162.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.12.4",
+      "uvicorn": "0.40.0"
+    },
+    "source_hashes": {
+      "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "app/agent.py": "2b76ea1762abcb33d895906dedfe600d4b84685526004cfb59d4701219fc595e",
+      "app/main.py": "11d46bdc08a741a803517193f2989162042cdcf3bf05728c3a2d59aebb90bc90",
+      "app/models.py": "c687eab1229c99807a0b99d3e7a17a8e64a596877bc947be878e94ec630f9d6a",
+      "app/providers.py": "8c124a7b2924d586a1506dfcc804b7e84d02a515a84e9e92c14332b802d9fbdf",
+      "app/tools.py": "5870241cd4f8e18354f2d79d9751bc8a1524422b14cd4ef5c6eb2f49d6353323",
+      "security/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "security/approvals.py": "14b26b411839e80a17fb134e4ab1db504a212acb7ba6bd031624be74ecb27e0c",
+      "security/audit.py": "e1f99516492ab4cfeddbd81c16e4272486449ae04d2442ec35260ff9c5028442",
+      "security/authorization.py": "4907b015550830f5ecee4e6f0e1c216dffa030f502d1d4c1b558a84bc1ca4c30",
+      "security/detector.py": "60999129b73b1c81f13b669140ea8d6d4844da3d0507b5642815ca72ed908396",
+      "security/policies.py": "ef1f015bb2ebb16f32f5873b67794d47748197ffd08e467ecd12588c54b823bf",
+      "security/response_contract.py": "6d586be615f1df9500b857caf987b3d2e90143b70d57ed291b9e4978ece21f49",
+      "attacks/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attacks/hardening_runner.py": "b8d83ba7250026180013ccbe1458794ee7954d7f0d003fe97b9834a3dc6b051b",
+      "attacks/runner.py": "56001055233956f7ba6bc31912e71d1bb31a1965cb379228dcf5cb45d81d039d",
+      "evaluations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evaluations/evaluator.py": "9d776bdc51ae393665694491081f77efe9b09176ef5c082e1fa6371d62402c25",
+      "evaluations/final_audit.py": "57acaaf091eb0a3f92e83d07a9a1ca10b36d1e46111fcf2f558ddc85cfc8de6e",
+      "evaluations/framework_summary.py": "f6b7b8736359b8e30954cdccb41909e7ce4bb884cd058e7be7ac280b59af041d",
+      "evaluations/hardening_summary.py": "42c507454a3168f4c8353c4c58d76cdbdf7c1ac9eb8530632a0bb1fe7cb04599",
+      "evaluations/independent.py": "1be27aefc956d644a7449535310c1538ac0ccfda57ab6744dff45b9f79a1f77f",
+      "evaluations/metrics.py": "a7948e8492eadc2a2a292a62e0545703c26aff001c4d4526b4d7a0983bc7aa04",
+      "evaluations/portfolio.py": "8908b28ffd2ecf57ed10b7662c0bc91ab2b7d48e3db0b3c04bc8f14150e24957",
+      "evaluations/replay.py": "db1321cb09184a134ffefa1fc05ec9a402778c25c907e34fcd47295ce8b547fd",
+      "evaluations/reporting.py": "7883bfde93ddf58fbfc9a4f59b0fe117d061f5e624ef51db42b9dfe67b7549ad"
+    },
+    "method": "single seeded sample per case/mode; paired identical attacker inputs"
+  },
+  "metrics": {
+    "vulnerable": {
+      "cases_total": 18,
+      "cases_complete": 18,
+      "cases_error": 0,
+      "attack_success_rate": {
+        "value": 1.0,
+        "numerator": 14,
+        "denominator": 14
+      },
+      "unauthorized_action_execution_rate": {
+        "value": 1.0,
+        "numerator": 10,
+        "denominator": 10
+      },
+      "unauthorized_action_block_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 10
+      },
+      "synthetic_secret_disclosure_rate": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4
+      },
+      "benign_task_completion_rate": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4
+      },
+      "detection": {
+        "tp": 13,
+        "fp": 0,
+        "tn": 4,
+        "fn": 1,
+        "precision": {
+          "value": 1.0,
+          "numerator": 13,
+          "denominator": 13
+        },
+        "recall": {
+          "value": 0.9285714285714286,
+          "numerator": 13,
+          "denominator": 14
+        },
+        "f1": {
+          "value": 0.9629629629629629,
+          "numerator": 26,
+          "denominator": 27
+        },
+        "false_positive_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4
+        }
+      }
+    },
+    "filtered": {
+      "cases_total": 18,
+      "cases_complete": 18,
+      "cases_error": 0,
+      "attack_success_rate": {
+        "value": 0.6428571428571429,
+        "numerator": 9,
+        "denominator": 14
+      },
+      "unauthorized_action_execution_rate": {
+        "value": 1.0,
+        "numerator": 10,
+        "denominator": 10
+      },
+      "unauthorized_action_block_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 10
+      },
+      "synthetic_secret_disclosure_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4
+      },
+      "benign_task_completion_rate": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4
+      },
+      "detection": {
+        "tp": 13,
+        "fp": 0,
+        "tn": 4,
+        "fn": 1,
+        "precision": {
+          "value": 1.0,
+          "numerator": 13,
+          "denominator": 13
+        },
+        "recall": {
+          "value": 0.9285714285714286,
+          "numerator": 13,
+          "denominator": 14
+        },
+        "f1": {
+          "value": 0.9629629629629629,
+          "numerator": 26,
+          "denominator": 27
+        },
+        "false_positive_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4
+        }
+      }
+    },
+    "hardened": {
+      "cases_total": 18,
+      "cases_complete": 18,
+      "cases_error": 0,
+      "attack_success_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 14
+      },
+      "unauthorized_action_execution_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 10
+      },
+      "unauthorized_action_block_rate": {
+        "value": 1.0,
+        "numerator": 10,
+        "denominator": 10
+      },
+      "synthetic_secret_disclosure_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4
+      },
+      "benign_task_completion_rate": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4
+      },
+      "detection": {
+        "tp": 13,
+        "fp": 0,
+        "tn": 4,
+        "fn": 1,
+        "precision": {
+          "value": 1.0,
+          "numerator": 13,
+          "denominator": 13
+        },
+        "recall": {
+          "value": 0.9285714285714286,
+          "numerator": 13,
+          "denominator": 14
+        },
+        "f1": {
+          "value": 0.9629629629629629,
+          "numerator": 26,
+          "denominator": 27
+        },
+        "false_positive_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4
+        }
+      }
+    }
+  }
+}

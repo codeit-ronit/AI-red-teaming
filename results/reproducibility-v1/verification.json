@@ -1,0 +1,23 @@
+{
+  "repository": "https://github.com/codeit-ronit/AI-red-teaming",
+  "tested_commit": "cb54f60fe87bc67c9965e9a5ef521cd201be97ca",
+  "method": "Clean GitHub checkout and newly created isolated environment; locked dependencies installed from local uv cache.",
+  "commands": [
+    "git clone https://github.com/codeit-ronit/AI-red-teaming.git /tmp/agentsec-postpush-verification",
+    "uv sync --frozen --extra dev --offline",
+    ".venv/bin/pytest -m 'not model' -q --junitxml=/tmp/agentsec-clean-clone-pytest.xml",
+    ".venv/bin/python -m attacks.runner --output /tmp/agentsec-clean-clone-benchmark"
+  ],
+  "pytest": {
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "54",
+    "time": "0.691"
+  },
+  "deterministic_executions": 54,
+  "execution_errors": 0,
+  "real_model_inference": false,
+  "hardened_unauthorized_executions": 0,
+  "note": "Supplemental setup verification only. Existing model benchmarks, native scanner reports and historical artifacts were not rerun or overwritten."
+}
