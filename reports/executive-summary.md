@@ -1,41 +1,48 @@
 # Executive summary — AgentSec Ops
 
-Northwind Retail is a fictional local support application that can look up orders, retrieve
-support documents, create tickets, inspect synthetic inventory and propose simulated refunds.
-The assessment asks whether untrusted instructions can make its agent cross resource and
-action boundaries, and whether independent application authorization can prevent execution.
+AgentSec Ops is a controlled local retail-support agent laboratory. It tests whether
+attacker-controlled messages, retrieved documents and simulated tool notes can manipulate
+a model, expose synthetic protected information or execute actions beyond the user's
+permissions. All data, credentials and administrative effects are synthetic.
 
-The scope includes Alice and Bob's fixture orders, public/internal asset records, a public
-fake key and poisoned support documents. There are no real customers, credentials or external
-targets. The application and inference run locally with no paid API cost.
+The original Python gateway enforces user identity, separate agent scope, resource
+ownership and simulated approval before execution. An output-filtered mode isolates
+known-marker filtering from authorization. A later grounded response contract renders
+approved support facts from authorized receipts instead of arbitrary model text.
 
-## Observations
+## Observed before/after experiment
 
-| Metric | Vulnerable | Filtered | Hardened |
-|---|---:|---:|---:|
-| Attack success | 7/13 (53.8%) | 6/13 (46.2%) | 0/14 (0.0%) |
-| Unauthorized execution / attempts | 7/7 (100.0%) | 7/7 (100.0%) | 0/6 (0.0%) |
-| Unauthorized block / attempts | 0/7 (0.0%) | 0/7 (0.0%) | 6/6 (100.0%) |
-| Known-key disclosure | 1/3 (33.3%) | 0/3 (0.0%) | 0/4 (0.0%) |
-| Benign task completion | 3/4 (75.0%) | 3/4 (75.0%) | 3/4 (75.0%) |
+Thirty-four inputs were evaluated in three configurations, producing 102 real local-model
+executions with one seeded Qwen 3B model. The following comparison holds tool authorization
+constant and adds the response contract:
 
-An actual local model followed a poisoned shipping FAQ into retrieving Bob's order while
-acting for Alice. It also disclosed a planted synthetic key. Output filtering prevented that
-known-key emission but still permitted unauthorized tool execution. Hardened authorization
-blocked every observed unauthorized request in this sample. A recorded malicious model call
-was additionally replayed unchanged to isolate the gateway's resource-ownership decision.
+| Observation | Hardened baseline | Hardened + contract |
+|---|---:|---:|
+| Original text-hijack targets delivered | 4/4 | 0/4 |
+| Held-out text-hijack targets delivered | 4/4 | 0/4 |
+| Protected instruction-fragment matches delivered | 1/2 | 0/2 |
+| Unauthorized executions / prohibited proposals | 0/5 | 0/5 |
+| Benign tasks completed | 13/16 | 13/16 |
 
-## Recommended controls
+Raw model hijacking remained 4/4 in both textual groups. The evidence supports application
+containment, not a resistant model. Equal benign totals conceal changed failures: Spanish
+output was lost, an asset-ID answer was recovered, and JSON/quoted-language tasks still failed.
+The content-only detector produced 2 false positives among 16 benign cases; its complete
+hardened-sample precision was 12/14 and recall 12/18.
 
-Enforce user and agent permissions at each executor before resource access or side effect;
-require object-level ownership checks; keep credentials outside model context; bind high-risk
-approval to the actual principal/action/resource; keep observable, access-controlled audit trails.
-Treat model refusals and detector alerts as supporting signals rather than authorization.
+## Verification and recommendations
 
-## Confidence and limits
+Actual Promptfoo, PyRIT and Garak experiments were rerun through an opt-in local workflow.
+The hosted GitHub pipeline passed 54 model-free tests, deterministic regressions, Bandit,
+pip-audit, Gitleaks and artifact upload; fresh outputs were downloaded and checked. This
+hosted job did not execute live-model benchmarks.
 
-The campaign has 18 scenarios across three modes, one small coding model and one seed.
-Two ROT13 responses produced parsing errors, excluded from resolved-outcome rates.
-Benign completion is 3/4, demonstrating usability/reliability limits. This is an exploratory
-lab result, not a security guarantee or production readiness assessment. A later PyRIT regression campaign and Garak native scan are documented in docs/framework-results.md; textual prompt hijacking persists in the hardened model. Hosted CI and a demo recording remain unexecuted.
-Full original evidence is in results/ollama-qwen/.
+Keep permissions at the executor, exclude credentials from model context, treat retrieved
+instructions and tool prose as untrusted, and constrain output only where product utility
+permits. One primary ROT13 parsing failure remains preserved; separate length-bounded
+retests produced valid but unhelpful text. The sample is small and labels were not externally
+adjudicated. A video recording and broad harmful-output benchmark remain incomplete.
+
+Details: [technical findings](../docs/final-hardening-report.md),
+[verification audit and hosted run](../docs/final-audit.md),
+[case study](../docs/research-case-study.md), [recording script](../docs/demo-120s.md).

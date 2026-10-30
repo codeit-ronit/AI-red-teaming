@@ -3,6 +3,26 @@
   "repository_selected_by_user": true,
   "initial_repository_empty": true,
   "authentication_verified": true,
-  "hosted_run_status": "pending publication after local validation",
-  "evidence": "GitHub API authentication and empty repository metadata verified; isolated checkout prepared"
+  "hosted_run_status": "success",
+  "run_id": 40993161906,
+  "run_url": "https://github.com/codeit-ronit/AI-red-teaming/actions/runs/40993161906",
+  "tested_commit": "d0b62a5ff9781b3321343241a2fc8cc0f65a3b3e",
+  "required_steps": {
+    "Unit, API, and deterministic security tests (no model)": "success",
+    "Deterministic paired benchmark (explicit fixtures)": "success",
+    "Static security analysis": "success",
+    "Audit locked runtime dependencies": "success",
+    "Scan working tree for accidental secrets": "success",
+    "Run actions/upload-artifact@v4": "success"
+  },
+  "artifact_name": "security-evidence",
+  "artifact_verified": true,
+  "fresh_ci_tests_passed": 54,
+  "fresh_ci_fixture_executions": 54,
+  "live_model_executed_by_hosted_ci": false,
+  "previous_failed_run": {
+    "id": 40992882084,
+    "reason": "Integration adapters were not packaged for the pytest console entry point; fixed and independently rerun"
+  },
+  "evidence_directory": "results/hardening-v1/hosted-ci"
 }

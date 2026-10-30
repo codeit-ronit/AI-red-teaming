@@ -30,7 +30,7 @@ The final `results/bandit.json` covers app, security, attacks, evaluations and i
 
 Gitleaks uses its default rules plus exact synthetic-marker and fixture-bearer exceptions and dependency-directory
 exclusions. `results/gitleaks.json` is the actual local working-tree scan, not a history scan.
-No remote CI execution is claimed. Actual Garak hitlogs are now saved under results/garak/. The original Promptfoo assertion syntax
+Hosted CI was subsequently verified; see final-audit.md. Actual Garak hitlogs are now saved under results/garak/. The original Promptfoo assertion syntax
 error is preserved in `results/promptfoo-initial-assertion-error.json`; its failed assertions are
 configuration failures, not eight validated target vulnerabilities.
 
@@ -47,3 +47,11 @@ four PromptInject cases in each mode. This remaining textual task-hijacking weak
 not fixed by the tool authorization gateway. Its generic encoding probes had no native hits,
 and its target traces showed no protected-data disclosure or unauthorized tool execution.
 These are distinct observations, not conflicting definitions of a single ASR.
+
+## Current hardening retest
+
+The original native model hijacks remain genuine historical findings. The response contract
+now contains the tested delivered output while raw model manipulation remains present.
+Read [the final findings](final-hardening-report.md) for 102 paired executions, held-out
+variants, system-instruction fragments, tool-response attacks, utility failures and independent
+content-detector metrics. The hosted CI run and artifact checks are in [the final audit](final-audit.md).

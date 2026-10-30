@@ -11,10 +11,18 @@ def fraction(metric):
 def main():
     root = Path(__file__).resolve().parents[1]
     frameworks_executed = all((root/f"results/{name}/report.json").exists() for name in ["pyrit", "garak"])
+    ci_file=root/"results/hardening-v1/ci-status.json"
+    hosted_verified=ci_file.exists() and json.loads(ci_file.read_text()).get("hosted_run_status")=="success"
+
     framework_status = ("PyRIT and Garak were subsequently executed against the actual local HTTP targets; see [external framework results](framework-results.md). Hosted GitHub Actions and a recorded video remain unexecuted." if frameworks_executed else "The hosted GitHub workflow, PyRIT runtime and Garak runtime were not executed.")
     framework_technology = ("PyRIT 1.1.0 and Garak 0.17.1 were installed in separate environments and executed; native and correlated application outcomes are preserved." if frameworks_executed else "PyRIT interfaces were inspected but not runtime-tested.")
     framework_remaining = ("Recorded video, hosted Actions execution," if frameworks_executed else "PyRIT experiment runtime, Garak scan/hit-log, recorded video, hosted Actions execution,")
     executive_framework = ("A later PyRIT regression campaign and Garak native scan are documented in docs/framework-results.md; textual prompt hijacking persists in the hardened model. Hosted CI and a demo recording remain unexecuted." if frameworks_executed else "Optional PyRIT/Garak runs and a demo recording remain unexecuted.")
+    if hosted_verified:
+        framework_status=framework_status.replace("Hosted GitHub Actions and a recorded video remain unexecuted.", "Hosted GitHub Actions is verified in final-audit.md; a recorded video remains incomplete.")
+        framework_technology += " Hosted model-free CI and artifacts were verified; see final-audit.md."
+        framework_remaining=framework_remaining.replace("hosted Actions execution,", "")
+        executive_framework=executive_framework.replace("Hosted CI and a demo recording remain unexecuted.", "Hosted CI is verified in the final audit; a demo recording remains incomplete.")
     live = json.loads((root / 'results/ollama-qwen/report.json').read_text())
     fixture = json.loads((root / 'results/deterministic/report.json').read_text())
     replay = json.loads((root / 'results/replay-I02.json').read_text())
@@ -193,6 +201,8 @@ with a generalized “100% secure” or universal percentage-improvement claim.
 production authentication/approval UI, persistent effects, multi-seed/multi-model campaigns,
 and general semantic leakage detection. The supplied video artifact is a recording script only.
 '''
+    if hosted_verified:
+        portfolio=portfolio.replace('is implemented; no remote CI run is claimed.', 'is implemented and hosted execution/artifacts are verified in final-audit.md.')
     (root/'docs/portfolio-summary.md').write_text(portfolio)
     executive = f'''# Executive summary — AgentSec Ops
 
@@ -230,7 +240,8 @@ Benign completion is 3/4, demonstrating usability/reliability limits. This is an
 lab result, not a security guarantee or production readiness assessment. {executive_framework}
 Full original evidence is in results/ollama-qwen/.
 '''
-    (root/'reports/executive-summary.md').write_text(executive)
+    if not (hosted_verified and (root/'docs/final-hardening-report.md').exists()):
+        (root/'reports/executive-summary.md').write_text(executive)
     print('Generated verified results, case study, portfolio summary, and executive summary')
 
 if __name__ == '__main__':

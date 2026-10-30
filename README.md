@@ -15,6 +15,7 @@ These are bounded observations, not general prompt-injection resistance.
 - [Final verification audit, CI evidence and remaining requirements](docs/final-audit.md)
 - [Research case study](docs/research-case-study.md)
 - [90–120-second recording script](docs/demo-120s.md) — video remains incomplete
+- [Verified resume bullets](docs/resume-bullets.md)
 - [Interview guide](docs/INTERVIEW_GUIDE.md) and [opt-in live-framework workflow](docs/live-workflow.md)
 
 ## Architecture
@@ -180,7 +181,7 @@ hitlogs are preserved and are not rewritten as successful defenses.
 
 The [GitHub Actions workflow](.github/workflows/security.yml) runs core tests, fixture
 benchmark, Bandit, pip-audit and checksum-verified Gitleaks. It needs no Ollama or paid APIs.
-Local results are stored under `results/`; a remote Actions run has not been performed.
+Local and hosted evidence are stored under `results/`. The [hosted security run](https://github.com/codeit-ronit/AI-red-teaming/actions/runs/40993161906) passed all required steps, and its uploaded artifacts were downloaded and checked.
 
 ## Scope and limitations
 

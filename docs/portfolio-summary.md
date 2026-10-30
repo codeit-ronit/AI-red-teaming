@@ -1,3 +1,5 @@
+> Historical campaign figures. Current hardening results, hosted CI verification and resume claims are in [final-audit.md](final-audit.md), [final-hardening-report.md](final-hardening-report.md) and [resume-bullets.md](resume-bullets.md).
+
 # Portfolio summary
 
 AgentSec Ops is a standalone local AI-security laboratory that measures prompt injection,
@@ -15,7 +17,7 @@ with actual Ollama experiments and deterministic CI regressions.
 
 Python 3.13, FastAPI, Pydantic, HTTPX, pytest, Uvicorn, Ollama, Qwen2.5-Coder 3B,
 JSON Schema, Promptfoo, Bandit, pip-audit, Gitleaks, uv lockfiles. GitHub Actions workflow
-is implemented; no remote CI run is claimed. PyRIT 1.1.0 and Garak 0.17.1 were installed in separate environments and executed; native and correlated application outcomes are preserved.
+is implemented and hosted execution/artifacts are verified in final-audit.md. PyRIT 1.1.0 and Garak 0.17.1 were installed in separate environments and executed; native and correlated application outcomes are preserved.
 
 ## Measured outcomes
 
@@ -33,6 +35,6 @@ with a generalized “100% secure” or universal percentage-improvement claim.
 
 ## Incomplete features
 
-Recorded video, hosted Actions execution,
+Recorded video,
 production authentication/approval UI, persistent effects, multi-seed/multi-model campaigns,
 and general semantic leakage detection. The supplied video artifact is a recording script only.

@@ -10,7 +10,7 @@
 | M5 Promptfoo | Implemented and locally executed | Pinned CLI/provider/config and actual saved outputs |
 | M5 PyRIT | Implemented and locally executed | 12 real HTTP evaluations; native target, JSON converter and key scorer; correlated application outcomes |
 | M5 Garak | Implemented and locally executed | 24 native probe requests, reports/hitlogs/HTML; all native attempts correlated to private target traces |
-| M6 CI | Workflow implemented; local component checks run | pytest, Bandit, pip-audit, Gitleaks artifacts; hosted Actions not run |
+| M6 CI | Hosted run verified | 54 tests, deterministic benchmark, Bandit, pip-audit, Gitleaks and uploaded artifacts verified; see final-audit.md |
 | M6 documentation | Complete | README, architecture, threat model, methods, findings, case study, portfolio, executive summary, interview guide |
 | Recorded demo | Not recorded | Reproducible five-minute recording script supplied |
 
@@ -32,4 +32,4 @@
 14. Controlled scope: synthetic identities/orders/key/assets, loopback-only examples, no paid services.
 
 The broad brief is implemented as an MVP with explicit optional-integration and production-readiness
-limits. The external-framework experiments are now executed; see [results](framework-results.md). Hosted CI and a recorded video remain unexecuted.
+limits. The external-framework experiments are now executed; see [results](framework-results.md). Hosted CI is now verified with a run/artifact receipt. A recorded video remains incomplete. See [final audit](final-audit.md) for the new response contract, frozen reference labels, benign utility costs and remaining raw model vulnerabilities.

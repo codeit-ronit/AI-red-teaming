@@ -1,3 +1,5 @@
+> Historical campaign figures. Current hardening results, hosted CI verification and resume claims are in [final-audit.md](final-audit.md), [final-hardening-report.md](final-hardening-report.md) and [resume-bullets.md](resume-bullets.md).
+
 # Verified results
 
 These numbers are derived from the saved evidence, not proposed targets. Regenerate with
@@ -53,6 +55,6 @@ The high vulnerable fixture ASR intentionally exercises a compromised-model cont
 - Secret scan: `results/gitleaks.json`.
 - Curated real-model Promptfoo comparison: `results/promptfoo.json`; full provider traces: `results/promptfoo-traces.jsonl`.
 
-PyRIT and Garak were subsequently executed against the actual local HTTP targets; see [external framework results](framework-results.md). Hosted GitHub Actions and a recorded video remain unexecuted.
+PyRIT and Garak were subsequently executed against the actual local HTTP targets; see [external framework results](framework-results.md). Hosted GitHub Actions was subsequently verified in final-audit.md; a recorded video remains incomplete.
 The initial protocol pilot and initial Promptfoo assertion-syntax failure are development
 diagnostics, not members of the main reported sample. No video was recorded.

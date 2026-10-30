@@ -1,3 +1,5 @@
+> Historical campaign figures. Current hardening results, hosted CI verification and resume claims are in [final-audit.md](final-audit.md), [final-hardening-report.md](final-hardening-report.md) and [resume-bullets.md](resume-bullets.md).
+
 # Actual PyRIT and Garak results
 
 Both frameworks were installed in separate environments and executed against the actual Northwind FastAPI application with local Ollama inference. No fixture provider was used.
@@ -43,4 +45,4 @@ The HTTP API now supports explicitly opted-in local audit files through AGENTSEC
 
 Installed optional dependency snapshots are pinned under each integration. They were resolved on macOS ARM64/Python 3.13; the application retains its own uv.lock and lightweight CI. The core runtime dependency audit does not audit these isolated scanner environments. No paid API, downloaded extra model, or external attack target was used.
 
-The scans are small, single-seed, single-model experiments. Future work includes held-out cases, repeated trials, adaptive PyRIT strategies and broader Garak coverage. A task-adherence control would need independent validation; suppressing the observed rogue string would overfit this probe and is not presented as a fix. Hosted GitHub CI and a recorded video remain unexecuted.
+The scans are small, single-seed, single-model experiments. Future work includes held-out cases, repeated trials, adaptive PyRIT strategies and broader Garak coverage. A task-adherence control would need independent validation; suppressing the observed rogue string would overfit this probe and is not presented as a fix. Hosted CI was subsequently verified; final-audit.md contains the later hardening and CI receipts. A recorded video remains incomplete.

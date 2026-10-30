@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 12950560661,
+      "node_id": "MDg6QXJ0aWZhY3QxMjk1MDU2MDY2MQ==",
+      "name": "security-evidence",
+      "size_in_bytes": 2630642,
+      "url": "https://api.github.com/repos/codeit-ronit/AI-red-teaming/actions/artifacts/12950560661",
+      "archive_download_url": "https://api.github.com/repos/codeit-ronit/AI-red-teaming/actions/artifacts/12950560661/zip",
+      "expired": false,
+      "digest": "sha256:ab6239d882d7f74da0fd1a7a69a60229ad4e15c6eedec7cf641326d55b8c314b",
+      "created_at": "2026-10-30T02:41:55Z",
+      "updated_at": "2026-10-30T02:41:55Z",
+      "expires_at": "2027-01-28T02:41:35Z",
+      "workflow_run": {
+        "id": 40993161906,
+        "repository_id": 1438891758,
+        "head_repository_id": 1438891758,
+        "head_branch": "main",
+        "head_sha": "d0b62a5ff9781b3321343241a2fc8cc0f65a3b3e"
+      }
+    }
+  ]
+}

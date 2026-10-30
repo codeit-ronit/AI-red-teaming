@@ -1,0 +1,22 @@
+{
+  "run_id": 40993161906,
+  "checked_files_sha256": {
+    "pytest.xml": "ce9dce972786a07071e46744b33fb333617593b4b4f3bb655768b7e9daecc82f",
+    "bandit.json": "86f6698ec5e54607a1242b8151748a4c85e30538ef24624ad1a92731b1ccf1d9",
+    "pip-audit.json": "a7211e9fdb41b45c3318c86773ade3e1fd66a7285dfa71654119a74ae5050940",
+    "gitleaks.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "ci/report.json": "be5b3c86a79bb00fae5496ae980ac390cd07d801a5aeef9353a9989f65002649"
+  },
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "54",
+    "time": "1.576",
+    "timestamp": "2026-10-30T02:41:46.678908+00:00",
+    "hostname": "runnervmnwato"
+  },
+  "all_downloaded_file_count": 137,
+  "note": "Uploaded artifact also contains archived local-model results from the repository. Only fresh CI pytest/scanner outputs and the explicitly scripted ci/ benchmark were executed by this hosted job."
+}

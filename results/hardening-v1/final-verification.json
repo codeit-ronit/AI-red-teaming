@@ -16,15 +16,27 @@
     "docs/demo-120s.md",
     "docs/final-audit.md",
     "docs/final-hardening-report.md",
+    "docs/framework-results.md",
+    "docs/implementation-status.md",
     "docs/live-workflow.md",
+    "docs/portfolio-summary.md",
     "docs/research-case-study.md",
+    "docs/resume-bullets.md",
+    "docs/security-findings.md",
+    "docs/verified-results.md",
     "evaluations/final_audit.py",
     "evaluations/hardening_summary.py",
     "evaluations/independent.py",
+    "evaluations/portfolio.py",
+    "integrations/__init__.py",
     "integrations/common.py",
+    "integrations/garak/__init__.py",
     "integrations/live_workflow.py",
+    "integrations/promptfoo/__init__.py",
     "integrations/promptfoo/provider.py",
+    "integrations/pyrit/__init__.py",
     "pyproject.toml",
+    "reports/executive-summary.md",
     "security/detector.py",
     "security/response_contract.py",
     "tests/test_api.py",
@@ -33,6 +45,20 @@
     "tests/test_response_contract.py"
   ],
   "tests": {
+    "pytest-cli-final.xml": {
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "54",
+      "time": "0.547"
+    },
+    "pytest-cli.xml": {
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "54",
+      "time": "0.656"
+    },
     "pytest-final.xml": {
       "errors": "0",
       "failures": "0",
@@ -85,12 +111,15 @@
   },
   "scanner_results": {
     "bandit": {
+      "file": "results/hardening-v1/bandit-final.json",
       "findings": 0
     },
     "pip-audit": {
+      "file": "results/hardening-v1/pip-audit.json",
       "findings": 0
     },
     "gitleaks": {
+      "file": "results/hardening-v1/gitleaks-final.json",
       "findings": 0
     }
   },
@@ -638,10 +667,32 @@
     "repository_selected_by_user": true,
     "initial_repository_empty": true,
     "authentication_verified": true,
-    "hosted_run_status": "pending publication after local validation",
-    "evidence": "GitHub API authentication and empty repository metadata verified; isolated checkout prepared"
+    "hosted_run_status": "success",
+    "run_id": 40993161906,
+    "run_url": "https://github.com/codeit-ronit/AI-red-teaming/actions/runs/40993161906",
+    "tested_commit": "d0b62a5ff9781b3321343241a2fc8cc0f65a3b3e",
+    "required_steps": {
+      "Unit, API, and deterministic security tests (no model)": "success",
+      "Deterministic paired benchmark (explicit fixtures)": "success",
+      "Static security analysis": "success",
+      "Audit locked runtime dependencies": "success",
+      "Scan working tree for accidental secrets": "success",
+      "Run actions/upload-artifact@v4": "success"
+    },
+    "artifact_name": "security-evidence",
+    "artifact_verified": true,
+    "fresh_ci_tests_passed": 54,
+    "fresh_ci_fixture_executions": 54,
+    "live_model_executed_by_hosted_ci": false,
+    "previous_failed_run": {
+      "id": 40992882084,
+      "reason": "Integration adapters were not packaged for the pytest console entry point; fixed and independently rerun"
+    },
+    "evidence_directory": "results/hardening-v1/hosted-ci"
   },
   "commands": [
+    "uv sync --frozen --extra dev --offline",
+    ".venv/bin/pytest -m 'not model' -q --junitxml=results/hardening-v1/pytest-cli.xml",
     ".venv/bin/python -m pytest -q --junitxml=results/hardening-v1/pytest-stage1.xml",
     ".venv/bin/python -m pytest -q --junitxml=results/hardening-v1/pytest-stage2.xml",
     ".venv/bin/python -m pytest -q --junitxml=results/hardening-v1/pytest-stage3.xml",
@@ -657,7 +708,13 @@
     ".venv/bin/pip-audit -r requirements.lock --disable-pip --no-deps -f json -o results/hardening-v1/pip-audit.json",
     ".venv/bin/python -m pytest -q --junitxml=results/hardening-v1/pytest-final.xml",
     "AGENTSEC_LIVE_TESTS=1 .venv/bin/python -m pytest tests/test_model.py -q --junitxml=results/hardening-v1/pytest-live.xml",
-    "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks.json"
+    "gh run view 40992882084 --repo codeit-ronit/AI-red-teaming --log-failed",
+    "gh run view 40993161906 --repo codeit-ronit/AI-red-teaming --json status,conclusion,url,headSha,jobs",
+    "gh run download 40993161906 --repo codeit-ronit/AI-red-teaming --name security-evidence --dir /tmp/agentsec-ci-success-artifacts",
+    ".venv/bin/pytest -m 'not model' -q --junitxml=results/hardening-v1/pytest-cli-final.xml",
+    ".venv/bin/bandit -r app security attacks evaluations integrations -f json -o results/hardening-v1/bandit-final.json",
+    "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks.json",
+    "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks-final.json"
   ],
   "remaining": [
     "Raw model remains susceptible to hijacking and instruction extraction",
@@ -666,6 +723,6 @@
     "Content-only detector has false positives/negatives",
     "Limited one-model, one-seed internal validation",
     "No recorded video",
-    "No broad harmful-content benchmark or production identity/approval workflow"
+    "No broad harmful-content benchmark; production identity/approvals remain out-of-scope fixture limitations"
   ]
 }

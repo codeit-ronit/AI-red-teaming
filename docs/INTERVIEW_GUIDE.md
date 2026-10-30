@@ -308,7 +308,7 @@ for the actual evidence and reproduction commands. Larger adaptive campaigns rem
 
 The GitHub workflow installs the frozen uv environment, runs model-free tests and benchmark,
 then Bandit, pip-audit and checksum-verified Gitleaks. It saves evidence even if a step fails.
-No hosted workflow run has occurred because this workspace was not published to GitHub.
+A hosted workflow has now passed on the published repository; use the run and artifact receipts in final-audit.md.
 
 The initial audit found five advisories for Starlette 0.52.1, pulled in by the reused FastAPI
 version. I upgraded the project-local FastAPI to 0.162.0 and Starlette to 1.10.0, regenerated
