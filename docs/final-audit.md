@@ -245,10 +245,10 @@ The dependency audit covers the locked core runtime, not the isolated scanner en
 - Renderer loses language/format/open-ended support utility
 - Content-only detector has false positives/negatives
 - Limited one-model, one-seed internal validation
-- No recorded video
+- No manual desktop screen capture; narrated terminal replay available
 - No broad harmful-content benchmark; production identity/approvals remain out-of-scope fixture limitations
 
-Human video recording remains incomplete; a [90–120-second exact script](demo-120s.md) is supplied. The [research article draft](research-case-study.md) explains the failure, mitigation and limits.
+A [1:58 narrated terminal replay](media/agentsec-ops-demo.mp4) is now available with fresh execution evidence in results/demo-v1. It is an edited replay with offline synthetic narration, not a desktop screen capture. The [manual recording script](demo-120s.md) remains available. The [research article draft](research-case-study.md) explains the failure, mitigation and limits.
 
 ## Resume claims supported by these observations
 
@@ -256,10 +256,11 @@ Human video recording remains incomplete; a [90–120-second exact script](demo-
 - Evaluated a constrained support-response contract in 102 paired local executions: delivered hijacking changed from 4/4 to 0/4 on both known and held-out textual targets while raw model compromise remained observable; measured 13/16 benign completion before and after with different failures.
 - Implemented policy-independent content detection and manually frozen reference labels; reported precision 12/14, recall 12/18 and benign false-positive rate 2/16 in the complete hardened sample, alongside actual Promptfoo/PyRIT/Garak evidence.
 
-Do not claim general resistance, zero utility cost, production authorization/approvals, externally validated labels, or a recorded video. Hosted CI claims require the run evidence above. A separate resume bullet may state that the model-free GitHub pipeline was verified only when that evidence records a successful run and checked artifacts.
+Do not claim general resistance, zero utility cost, production authorization/approvals, externally validated labels, or a desktop screen capture/developer-recorded voice for the narrated replay. Hosted CI claims require the run evidence above. A separate resume bullet may state that the model-free GitHub pipeline was verified only when that evidence records a successful run and checked artifacts.
 
 ## Files changed since the initial hardening snapshot
 
+- `.github/workflows/security.yml`
 - `.gitignore`
 - `.gitleaks.toml`
 - `README.md`
@@ -278,6 +279,12 @@ Do not claim general resistance, zero utility cost, production authorization/app
 - `docs/framework-results.md`
 - `docs/implementation-status.md`
 - `docs/live-workflow.md`
+- `docs/media/README.md`
+- `docs/media/agentsec-ops-demo.mp4`
+- `docs/media/agentsec-ops-demo.srt`
+- `docs/media/demo-manifest.json`
+- `docs/media/demo-narration.txt`
+- `docs/media/demo-preview.png`
 - `docs/portfolio-summary.md`
 - `docs/research-case-study.md`
 - `docs/resume-bullets.md`

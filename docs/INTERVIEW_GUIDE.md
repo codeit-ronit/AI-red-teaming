@@ -1,3 +1,5 @@
+> A [1:58 narrated terminal-replay demo](media/agentsec-ops-demo.mp4) is now available. It uses fresh actual executions and synthetic narration; it is not a desktop screen capture. See media/README.md and results/demo-v1 for evidence.
+
 > Final-hardening update: start with [the latest technical report](final-hardening-report.md),
 > [final audit](final-audit.md), and [120-second demo](demo-120s.md). The numbers and framework
 > findings below describe earlier campaigns unless explicitly identified as follow-up results.

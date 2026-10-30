@@ -14,9 +14,20 @@ These are bounded observations, not general prompt-injection resistance.
 - [Technical findings and before/after table](docs/final-hardening-report.md)
 - [Final verification audit, CI evidence and remaining requirements](docs/final-audit.md)
 - [Research case study](docs/research-case-study.md)
-- [90–120-second recording script](docs/demo-120s.md) — video remains incomplete
+- [90–120-second recording script](docs/demo-120s.md) and [completed terminal demo](docs/media/agentsec-ops-demo.mp4)
 - [Verified resume bullets](docs/resume-bullets.md)
 - [Interview guide](docs/INTERVIEW_GUIDE.md) and [opt-in live-framework workflow](docs/live-workflow.md)
+
+## Short working demonstration
+
+**[Watch the 1:58 narrated terminal demo](docs/media/agentsec-ops-demo.mp4)**
+
+[![AgentSec Ops demo preview](docs/media/demo-preview.png)](docs/media/agentsec-ops-demo.mp4)
+
+Actual fresh local-model execution, rendered as an edited terminal replay with captions
+and offline synthetic narration. It shows authorized support, a real textual hijack,
+controlled delivery, tool authorization and verified tests/CI. This is not a desktop screen
+capture or the developer's recorded voice. [Evidence and reproduction](docs/media/README.md).
 
 ## Architecture
 
@@ -202,4 +213,4 @@ Read [threat model](docs/threat-model.md), [architecture decisions](docs/archite
 
 Future work: larger held-out datasets, multiple seeds/models, persistent object storage,
 production identity/approval binding, semantic leakage oracles, adaptive campaigns, and broader adaptive
-PyRIT/Garak campaigns. No recorded demo video is included; a recording script is provided.
+PyRIT/Garak campaigns. A narrated terminal-replay demo is included; the manual desktop-recording script is also provided.

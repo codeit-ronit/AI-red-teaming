@@ -1,6 +1,6 @@
 # 90–120-second recording script
 
-Video status: **not recorded**. This is an exact recording script, not a video artifact.
+A **1:58 narrated terminal-replay demo** is now available at [docs/media/agentsec-ops-demo.mp4](media/agentsec-ops-demo.mp4), with fresh execution evidence in results/demo-v1. It is an edited replay with synthetic narration, not a desktop screen capture. The script below remains available for a separate manual recording.
 
 Prepare before recording: activate the existing environment, start Ollama, open
 `docs/final-hardening-report.md`, the Mermaid threat diagram, saved `report.md` and the hosted

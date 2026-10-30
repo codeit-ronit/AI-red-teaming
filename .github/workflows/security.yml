@@ -22,7 +22,7 @@ jobs:
         run: uv run --frozen python -m attacks.runner --output results/ci
       - name: Static security analysis
         if: always()
-        run: uv run --frozen bandit -r app security attacks evaluations integrations -f json -o results/bandit.json
+        run: uv run --frozen bandit -r app security attacks evaluations integrations scripts -f json -o results/bandit.json
       - name: Audit locked runtime dependencies
         if: always()
         run: uv run --frozen pip-audit -r requirements.lock --disable-pip --no-deps -f json -o results/pip-audit.json

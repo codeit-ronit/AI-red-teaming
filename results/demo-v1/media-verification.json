@@ -1,0 +1,14 @@
+{
+  "ffmpeg_full_decode_exit_code": 0,
+  "duration_seconds": 118,
+  "resolution": [
+    1600,
+    900
+  ],
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "mean_volume_db": -16.8,
+  "video_sha256_verified": true,
+  "visual_inspection": "All six result frames inspected for clipping, readability and agreement with actual captured values",
+  "presentation": "Edited terminal replay from fresh local execution; offline synthetic narration; not a desktop screen capture"
+}

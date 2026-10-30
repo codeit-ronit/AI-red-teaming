@@ -41,7 +41,7 @@ Keep permissions at the executor, exclude credentials from model context, treat 
 instructions and tool prose as untrusted, and constrain output only where product utility
 permits. One primary ROT13 parsing failure remains preserved; separate length-bounded
 retests produced valid but unhelpful text. The sample is small and labels were not externally
-adjudicated. A video recording and broad harmful-output benchmark remain incomplete.
+adjudicated. A narrated 1:58 terminal-replay demonstration is available in docs/media; a broad harmful-output benchmark and a separate manual desktop recording remain incomplete.
 
 Details: [technical findings](../docs/final-hardening-report.md),
 [verification audit and hosted run](../docs/final-audit.md),

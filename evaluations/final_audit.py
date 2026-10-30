@@ -9,6 +9,8 @@ OUT=ROOT/'results/hardening-v1'
 
 
 def main():
+    demo_path=ROOT/'docs/media/demo-manifest.json'
+    demo=json.loads(demo_path.read_text()) if demo_path.exists() else None
     baseline=json.loads((OUT/'initial-state.json').read_text())
     changed_history=[name for name,digest in baseline['historical_results'].items()
                      if not (ROOT/name).exists() or hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest]
@@ -68,10 +70,10 @@ def main():
         commands.append(json.loads((OUT/'scanner-command.json').read_text())['command'].replace('gitleaks.json','gitleaks-final.json'))
     audit={'historical_result_files_unchanged':len(baseline['historical_results']),'changed_files':sorted(changed),
         'tests':tests,'scanner_results':scanner,'model_experiment':{'executions':len(experiment['runs']),'metrics':experiment['metrics']},
-        'live_framework_workflow':live,'ci':ci,'commands':commands,
+        'live_framework_workflow':live,'ci':ci,'commands':commands,'demonstration':demo,
         'remaining':['Raw model remains susceptible to hijacking and instruction extraction','One primary ROT13 error retained; repaired framing does not imply useful answer',
                      'Renderer loses language/format/open-ended support utility','Content-only detector has false positives/negatives','Limited one-model, one-seed internal validation',
-                     'No recorded video','No broad harmful-content benchmark; production identity/approvals remain out-of-scope fixture limitations']}
+                     'No manual desktop screen capture; narrated terminal replay available' if demo else 'No recorded video','No broad harmful-content benchmark; production identity/approvals remain out-of-scope fixture limitations']}
     (OUT/'final-verification.json').write_text(json.dumps(audit,indent=2)+'\n')
     lines=['# Final hardening and verification audit','',
       'This audit checks the requested final hardening work against saved execution evidence. It is not an externally adjudicated security certification. Current completion claims are limited to the observations below.',
@@ -113,6 +115,10 @@ These bullets describe the bounded observations; full evidence and run links are
     if ci.get('hosted_run_status')!='success':
         resume=resume.replace('verified 54 hosted tests, deterministic regressions, static/dependency/secret scans and uploaded artifacts','implemented local tests and CI configuration; hosted execution remains unverified')
     (ROOT/'docs/resume-bullets.md').write_text(resume)
+    if demo:
+        lines=[line.replace('Human video recording remains incomplete; a [90–120-second exact script](demo-120s.md) is supplied.',
+            'A [1:58 narrated terminal replay](media/agentsec-ops-demo.mp4) is now available with fresh execution evidence in results/demo-v1. It is an edited replay with offline synthetic narration, not a desktop screen capture. The [manual recording script](demo-120s.md) remains available.')
+            .replace('or a recorded video.', 'or a desktop screen capture/developer-recorded voice for the narrated replay.') for line in lines]
     (ROOT/'docs/final-audit.md').write_text('\n'.join(lines)+'\n')
     print('Final audit generated; historical result hashes verified')
 

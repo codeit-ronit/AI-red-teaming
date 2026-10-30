@@ -1,0 +1,3 @@
+# Optional media tools only; not application/runtime dependencies.
+Pillow==12.1.0
+imageio-ffmpeg==0.6.0

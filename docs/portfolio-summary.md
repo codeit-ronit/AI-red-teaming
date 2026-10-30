@@ -35,6 +35,6 @@ with a generalized “100% secure” or universal percentage-improvement claim.
 
 ## Incomplete features
 
-Recorded video,
+Manual desktop screen capture (a narrated terminal-replay demo is now available),
 production authentication/approval UI, persistent effects, multi-seed/multi-model campaigns,
 and general semantic leakage detection. The supplied video artifact is a recording script only.

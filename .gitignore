@@ -10,3 +10,4 @@ node_modules/
 .promptfoo/
 results/garak/runtime/
 results/**/runtime/
+results/**/media-build/

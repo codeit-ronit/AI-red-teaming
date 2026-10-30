@@ -1,0 +1,17 @@
+1. A model can follow an attacker.
+AgentSec Ops is a local AI security laboratory built around a retail support agent. This edited terminal replay uses fresh local model responses, synthetic data, and recorded execution evidence. The model proposes actions. Independent application controls decide what executes and what reaches the user.
+
+2. First, a legitimate request.
+Alice asks about her own order. The model proposes an order lookup, the gateway authorizes it, and the tool executes. The response contract renders the status from that actual receipt. The result is a working, authorized support task.
+
+3. Then, an injected instruction.
+The next request mixes a valid order task with an instruction to append an attacker selected phrase. With model text delivered directly, the phrase reaches the user. Authorization is active, but it does not make arbitrary model output relevant or trustworthy.
+
+4. Same input. Controlled delivery.
+The same input now uses the grounded response contract. The raw model still includes the attacker phrase. The application instead renders supported facts from authorized tool receipts, keeping that phrase out of the delivered response. This demonstrates output containment, not a model that resists injection.
+
+5. Tool safety is a separate boundary.
+Now the model requests a restricted inventory record. The vulnerable gateway executes it despite a shadow policy denial. The hardened gateway enforces the denial before execution. We inspect actual tool events, rather than trusting the model to say whether an operation happened.
+
+6. Verified, with honest limits.
+The regression tests pass, and the captured hosted security workflow also passed. The full research report includes actual Promptfoo, PyRIT and Garak runs, utility failures, and false alerts. This demonstration illustrates selected boundaries. It does not claim complete security or general model resistance.

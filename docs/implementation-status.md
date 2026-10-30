@@ -12,7 +12,7 @@
 | M5 Garak | Implemented and locally executed | 24 native probe requests, reports/hitlogs/HTML; all native attempts correlated to private target traces |
 | M6 CI | Hosted run verified | 54 tests, deterministic benchmark, Bandit, pip-audit, Gitleaks and uploaded artifacts verified; see final-audit.md |
 | M6 documentation | Complete | README, architecture, threat model, methods, findings, case study, portfolio, executive summary, interview guide |
-| Recorded demo | Not recorded | Reproducible five-minute recording script supplied |
+| Short working demo | Narrated terminal replay completed | docs/media/agentsec-ops-demo.mp4; fresh capture, trace evidence and media verification in results/demo-v1 |
 
 ## MVP acceptance mapping
 
@@ -32,4 +32,4 @@
 14. Controlled scope: synthetic identities/orders/key/assets, loopback-only examples, no paid services.
 
 The broad brief is implemented as an MVP with explicit optional-integration and production-readiness
-limits. The external-framework experiments are now executed; see [results](framework-results.md). Hosted CI is now verified with a run/artifact receipt. A recorded video remains incomplete. See [final audit](final-audit.md) for the new response contract, frozen reference labels, benign utility costs and remaining raw model vulnerabilities.
+limits. The external-framework experiments are now executed; see [results](framework-results.md). Hosted CI is now verified with a run/artifact receipt. A 1:58 narrated terminal-replay demonstration is now available; a separate manual desktop screen recording is not provided. See [final audit](final-audit.md) for the new response contract, frozen reference labels, benign utility costs and remaining raw model vulnerabilities.

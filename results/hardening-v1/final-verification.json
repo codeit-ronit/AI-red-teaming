@@ -1,6 +1,7 @@
 {
   "historical_result_files_unchanged": 49,
   "changed_files": [
+    ".github/workflows/security.yml",
     ".gitignore",
     ".gitleaks.toml",
     "README.md",
@@ -19,6 +20,12 @@
     "docs/framework-results.md",
     "docs/implementation-status.md",
     "docs/live-workflow.md",
+    "docs/media/README.md",
+    "docs/media/agentsec-ops-demo.mp4",
+    "docs/media/agentsec-ops-demo.srt",
+    "docs/media/demo-manifest.json",
+    "docs/media/demo-narration.txt",
+    "docs/media/demo-preview.png",
     "docs/portfolio-summary.md",
     "docs/research-case-study.md",
     "docs/resume-bullets.md",
@@ -716,13 +723,37 @@
     "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks.json",
     "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks-final.json"
   ],
+  "demonstration": {
+    "video": "docs/media/agentsec-ops-demo.mp4",
+    "duration_seconds": 118,
+    "resolution": [
+      1600,
+      900
+    ],
+    "fps": 15,
+    "pillow_version": "12.1.0",
+    "capture_manifest_sha256": "eb8e8edc591e34628b58a08f28eaea350c4b71fd4f960570770b0b392198e738",
+    "video_sha256": "0c492851493448331d84e69453ee8297ae585bc8fb0741c553d8e542e2d758f0",
+    "source_commit": "2dcc732d3c1ee1901426476e3488c0df32d31410",
+    "format": "Edited terminal replay from actual captured execution, not desktop screen capture",
+    "narration": "Offline macOS Samantha synthetic voice; not the developer speaking",
+    "scene_seconds": [
+      22,
+      17,
+      18,
+      20,
+      19,
+      22
+    ],
+    "raw_evidence": "results/demo-v1"
+  },
   "remaining": [
     "Raw model remains susceptible to hijacking and instruction extraction",
     "One primary ROT13 error retained; repaired framing does not imply useful answer",
     "Renderer loses language/format/open-ended support utility",
     "Content-only detector has false positives/negatives",
     "Limited one-model, one-seed internal validation",
-    "No recorded video",
+    "No manual desktop screen capture; narrated terminal replay available",
     "No broad harmful-content benchmark; production identity/approvals remain out-of-scope fixture limitations"
   ]
 }
