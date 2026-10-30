@@ -16,7 +16,8 @@ dev = ["pytest==8.4.2", "bandit==1.9.4", "pip-audit==2.9.0"]
 agentsec-eval = "attacks.runner:main"
 
 [tool.setuptools.packages.find]
-include = ["app*", "security*", "attacks*", "evaluations*"]
+include = ["app*", "security*", "attacks*", "evaluations*", "integrations*"]
+namespaces = false
 
 [tool.setuptools.package-data]
 app = ["fixtures/*.json"]

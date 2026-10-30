@@ -1,0 +1,43 @@
+core-security	Unit, API, and deterministic security tests (no model)	﻿2026-10-30T02:38:52.6928747Z ##[group]Run uv run --frozen pytest -m 'not model' --junitxml=results/pytest.xml
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6929384Z [36;1muv run --frozen pytest -m 'not model' --junitxml=results/pytest.xml[0m
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6960268Z shell: /usr/bin/bash -e {0}
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6960530Z env:
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6960794Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6961233Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6961665Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6962041Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6962435Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6962837Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6963205Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:52.6963822Z ##[endgroup]
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3231997Z ============================= test session starts ==============================
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3256451Z platform linux -- Python 3.13.17, pytest-8.4.2, pluggy-1.7.0
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3257139Z rootdir: /home/runner/work/AI-red-teaming/AI-red-teaming
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3257659Z configfile: pyproject.toml
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3258035Z testpaths: tests
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3258406Z plugins: platformdirs-4.14.0, anyio-4.15.1
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3258980Z collected 52 items / 1 error / 1 deselected / 51 selected
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3259377Z 
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3259592Z ==================================== ERRORS ====================================
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3260328Z ______________ ERROR collecting tests/test_framework_evidence.py _______________
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3261483Z ImportError while importing test module '/home/runner/work/AI-red-teaming/AI-red-teaming/tests/test_framework_evidence.py'.
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3262649Z Hint: make sure your test modules/packages have valid Python names.
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3263259Z Traceback:
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3264260Z /opt/hostedtoolcache/Python/3.13.17/x64/lib/python3.13/importlib/__init__.py:88: in import_module
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3265232Z     return _bootstrap._gcd_import(name[level:], package, level)
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3265856Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3266412Z tests/test_framework_evidence.py:3: in <module>
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3266994Z     from integrations.garak.run import correlate
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3267620Z E   ModuleNotFoundError: No module named 'integrations'
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3268275Z =============================== warnings summary ===============================
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3268992Z .venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3271150Z   /home/runner/work/AI-red-teaming/AI-red-teaming/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3273013Z     from starlette.testclient import TestClient as TestClient  # noqa
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3273883Z 
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3274252Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3275249Z - generated xml file: /home/runner/work/AI-red-teaming/AI-red-teaming/results/pytest.xml -
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3276207Z =========================== short test summary info ============================
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3276811Z ERROR tests/test_framework_evidence.py
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3277442Z !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.3278075Z ================== 1 deselected, 1 warning, 1 error in 1.49s ===================
+core-security	Unit, API, and deterministic security tests (no model)	2026-10-30T02:38:56.4748312Z ##[error]Process completed with exit code 2.
