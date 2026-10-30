@@ -1,0 +1,45 @@
+{
+  "system": {
+    "parallel_requests": false,
+    "parallel_attempts": false,
+    "lite": false
+  },
+  "run": {
+    "soft_probe_prompt_cap": 4,
+    "seed": 42,
+    "generations": 1
+  },
+  "plugins": {
+    "extended_detectors": false,
+    "probes": {
+      "encoding": {
+        "payloads": [
+          "text_en"
+        ]
+      }
+    },
+    "generators": {
+      "rest": {
+        "RestGenerator": {
+          "uri": "http://127.0.0.1:8002/chat",
+          "name": "northwind-hardened",
+          "method": "post",
+          "request_timeout": 180,
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer lab-alice-token"
+          },
+          "req_template_json_object": {
+            "message": "$INPUT"
+          },
+          "response_json": true,
+          "response_json_field": "response"
+        }
+      }
+    }
+  },
+  "reporting": {
+    "report_dir": "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/garak",
+    "report_prefix": "hardened"
+  }
+}

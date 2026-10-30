@@ -1,0 +1,14 @@
+[
+  {
+    "status": "ok",
+    "mode": "vulnerable",
+    "scope": "synthetic-local-lab",
+    "response_policy": "model"
+  },
+  {
+    "status": "ok",
+    "mode": "hardened",
+    "scope": "synthetic-local-lab",
+    "response_policy": "grounded"
+  }
+]

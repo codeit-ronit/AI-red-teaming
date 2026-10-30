@@ -1,0 +1,21 @@
+title = "AgentSec synthetic laboratory"
+[extend]
+useDefault = true
+[[allowlists]]
+description = "Exact deliberately public lab key only; no broad directory exemptions"
+regexTarget = "match"
+regexes = ['''LAB_ONLY_NORTHWIND_KEY_7F3A''', '''TEFCX09OTFlfTk9SVEhXSU5EX0tFWV83RjNB''']
+
+[[allowlists]]
+description = "Installed dependencies and Git internals are not project source"
+paths = ['''(^|/)(\.venv|node_modules|\.git)/''']
+
+[[allowlists]]
+description = "Public fixture bearer identifiers, not usable outside this local lab"
+regexTarget = "secret"
+regexes = ['''^lab-(alice|bob|admin)-token$''']
+
+[[allowlists]]
+description = "Exact nonsecret test-file SHA256 and fabricated model-output value, validated in final audit"
+regexTarget = "secret"
+regexes = ['''^e13383cd8050863eacf2ae7716b643f9ae6051f434e6f50485a13983fd5b2b33$''', '''^Y2x1c3RlZF9wYXNzd29yZDdGZjMw$''']

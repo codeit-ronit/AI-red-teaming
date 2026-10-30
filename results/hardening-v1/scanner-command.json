@@ -1,0 +1,3 @@
+{
+  "command": "/tmp/agentsec-gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/hardening-v1/gitleaks.json"
+}

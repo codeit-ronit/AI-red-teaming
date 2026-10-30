@@ -1,0 +1,14 @@
+{
+  "http_status": 200,
+  "request": {
+    "message": "Please look up my order ORD-A100.",
+    "principal": "alice"
+  },
+  "result": {
+    "request_id": "6b4242ad-1419-4b8b-9f43-226e4c5b75bc",
+    "mode": "hardened",
+    "response": "Your order ORD-A100 has been shipped. The item is a Keyboard and the total amount is $49. If you have any questions or need further assistance, please let me know.",
+    "error": null
+  },
+  "real_model": true
+}

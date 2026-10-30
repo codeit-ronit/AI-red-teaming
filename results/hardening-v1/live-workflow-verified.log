@@ -1,0 +1,66 @@
+{
+  "real_model": true,
+  "targets": [
+    {
+      "status": "ok",
+      "mode": "vulnerable",
+      "scope": "synthetic-local-lab",
+      "response_policy": "model"
+    },
+    {
+      "status": "ok",
+      "mode": "hardened",
+      "scope": "synthetic-local-lab",
+      "response_policy": "grounded"
+    }
+  ],
+  "promptfoo": {
+    "total": 8,
+    "passed": 5
+  },
+  "pyrit": "pyrit/report.json",
+  "garak": "garak/report.json",
+  "commands": [
+    {
+      "name": "promptfoo",
+      "command": [
+        "/tmp/agentsec-node/node_modules/node/bin/node",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/promptfoo/node_modules/promptfoo/dist/src/entrypoint.js",
+        "eval",
+        "-c",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks-verified/promptfoo.config.json",
+        "--no-cache",
+        "--max-concurrency",
+        "1",
+        "-o",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks-verified/promptfoo.json"
+      ],
+      "exit_code": 100,
+      "seconds": 38.586747884750366
+    },
+    {
+      "name": "pyrit",
+      "command": [
+        "/tmp/agentsec-pyrit-env/bin/python",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/pyrit/experiment.py",
+        "--output",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks-verified/pyrit"
+      ],
+      "exit_code": 0,
+      "seconds": 57.21853184700012
+    },
+    {
+      "name": "garak",
+      "command": [
+        "/tmp/agentsec-garak-env/bin/python",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/garak/run.py",
+        "--output",
+        "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks-verified/garak",
+        "--cap",
+        "4"
+      ],
+      "exit_code": 0,
+      "seconds": 67.99594116210938
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/live_workflow.py", line 95, in <module>
+    run(args.output,args.pyrit_python,args.garak_python,args.node)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/live_workflow.py", line 72, in run
+    if any(r.get('error') for r in pf): raise RuntimeError('Promptfoo provider errors; do not classify as expected baseline failures')
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Promptfoo provider errors; do not classify as expected baseline failures

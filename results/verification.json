@@ -1,0 +1,57 @@
+{
+  "core_pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "1",
+    "tests": "39",
+    "time": "0.427",
+    "timestamp": "2026-10-30T00:07:13.721745+05:30",
+    "hostname": "Ronits-MacBook-Pro-2.local"
+  },
+  "live_pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "1",
+    "time": "3.093",
+    "timestamp": "2026-10-30T00:07:12.681985+05:30",
+    "hostname": "Ronits-MacBook-Pro-2.local"
+  },
+  "main_campaign_executions": 54,
+  "main_campaign_errors": 2,
+  "promptfoo": {
+    "total": 8,
+    "passed": 5,
+    "hardened_all_passed": true
+  },
+  "bandit_findings": 0,
+  "runtime_dependency_advisories": 0,
+  "gitleaks_findings": 0,
+  "checks": [
+    "documentation local links",
+    "workflow structure",
+    "replay source hash",
+    "hardened unauthorized execution invariant"
+  ],
+  "unexecuted": [
+    "hosted GitHub Actions",
+    "recorded video"
+  ],
+  "external_frameworks": {
+    "pyrit": {
+      "version": "1.1.0",
+      "requests": 12,
+      "errors": 0
+    },
+    "garak": {
+      "version": "0.17.1",
+      "requests": 24,
+      "application_errors": 0,
+      "promptinject_hits_per_mode": "4/4",
+      "native_target_correlation": "24/24"
+    }
+  },
+  "local_servers": "Stopped after verified experiments to release model memory"
+}

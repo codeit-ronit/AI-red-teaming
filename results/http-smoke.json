@@ -1,0 +1,23 @@
+{
+  "health": {
+    "status": "ok",
+    "mode": "hardened",
+    "scope": "synthetic-local-lab"
+  },
+  "own_order": {
+    "status": 200,
+    "body": {
+      "owner": "alice",
+      "item": "Keyboard",
+      "status": "shipped",
+      "amount": 49
+    }
+  },
+  "cross_user": {
+    "status": 403,
+    "body": {
+      "detail": "Resource unavailable"
+    }
+  },
+  "missing_identity": 401
+}

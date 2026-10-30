@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="3.093" timestamp="2026-10-30T00:07:12.681985+05:30" hostname="Ronits-MacBook-Pro-2.local"><testcase classname="tests.test_model" name="test_real_model_poisoned_document_enforcement" time="2.889" /></testsuite></testsuites>

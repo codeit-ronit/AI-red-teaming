@@ -1,0 +1,45 @@
+name: Security regression
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen --extra dev
+      - name: Unit, API, and deterministic security tests (no model)
+        run: uv run --frozen pytest -m 'not model' --junitxml=results/pytest.xml
+      - name: Deterministic paired benchmark (explicit fixtures)
+        run: uv run --frozen python -m attacks.runner --output results/ci
+      - name: Static security analysis
+        if: always()
+        run: uv run --frozen bandit -r app security attacks evaluations integrations -f json -o results/bandit.json
+      - name: Audit locked runtime dependencies
+        if: always()
+        run: uv run --frozen pip-audit -r requirements.lock --disable-pip --no-deps -f json -o results/pip-audit.json
+      - name: Install pinned Gitleaks with checksum verification
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v8.30.0 --repo gitleaks/gitleaks --pattern 'gitleaks_8.30.0_linux_x64.tar.gz' --pattern 'gitleaks_8.30.0_checksums.txt' --dir /tmp/gitleaks
+          cd /tmp/gitleaks
+          sha256sum --ignore-missing --check gitleaks_8.30.0_checksums.txt
+          tar -xzf gitleaks_8.30.0_linux_x64.tar.gz gitleaks
+      - name: Scan working tree for accidental secrets
+        if: always()
+        run: /tmp/gitleaks/gitleaks dir . --redact --config .gitleaks.toml --report-format json --report-path results/gitleaks.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-evidence
+          path: results/

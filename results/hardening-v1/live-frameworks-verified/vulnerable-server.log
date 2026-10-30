@@ -1,0 +1,29 @@
+INFO:     Started server process [45250]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56743 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56822 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56825 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56856 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56902 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56914 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56936 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56960 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56964 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56970 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56976 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56982 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56989 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56995 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57001 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57007 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57013 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57020 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57029 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57035 - "POST /chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [45250]

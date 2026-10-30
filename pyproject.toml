@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentsec-ops"
+version = "0.1.0"
+description = "Local agent security evaluation and deterministic execution gateway"
+requires-python = ">=3.11"
+dependencies = ["fastapi==0.162.0", "httpx==0.28.1", "pydantic==2.12.4", "uvicorn==0.40.0", "defusedxml==0.7.1"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "bandit==1.9.4", "pip-audit==2.9.0"]
+
+[project.scripts]
+agentsec-eval = "attacks.runner:main"
+
+[tool.setuptools.packages.find]
+include = ["app*", "security*", "attacks*", "evaluations*"]
+
+[tool.setuptools.package-data]
+app = ["fixtures/*.json"]
+attacks = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["unit: isolated logic", "security: deterministic security regression", "integration: application integration", "model: requires live Ollama (opt in)"]

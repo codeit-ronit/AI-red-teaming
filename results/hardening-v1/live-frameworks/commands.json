@@ -1,0 +1,19 @@
+[
+  {
+    "name": "promptfoo",
+    "command": [
+      "/tmp/agentsec-node/node_modules/node/bin/node",
+      "/Users/ronitkumarchoudhary/Desktop/AI red teaming/integrations/promptfoo/node_modules/promptfoo/dist/src/entrypoint.js",
+      "eval",
+      "-c",
+      "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks/promptfoo.config.json",
+      "--no-cache",
+      "--max-concurrency",
+      "1",
+      "-o",
+      "/Users/ronitkumarchoudhary/Desktop/AI red teaming/results/hardening-v1/live-frameworks/promptfoo.json"
+    ],
+    "exit_code": 100,
+    "seconds": 40.846774101257324
+  }
+]
