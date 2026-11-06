@@ -1,5 +1,7 @@
 # Architecture and engineering decisions
 
+> November 6 follow-up: [research and execution-boundary hardening](red-team-research.md) adds request capabilities, tool/write budgets, single-use expiring fixture approvals and request isolation. Earlier experiment results below remain historical.
+
 ## Original contribution
 
 The core contribution is the Python authorization gateway and its auditable comparison

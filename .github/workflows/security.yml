@@ -20,6 +20,8 @@ jobs:
         run: uv run --frozen pytest -m 'not model' --junitxml=results/pytest.xml
       - name: Deterministic paired benchmark (explicit fixtures)
         run: uv run --frozen python -m attacks.runner --output results/ci
+      - name: Execution boundaries under compromised-model fixtures
+        run: uv run --frozen python -m attacks.boundary_runner --output results/ci-boundaries
       - name: Static security analysis
         if: always()
         run: uv run --frozen bandit -r app security attacks evaluations integrations scripts -f json -o results/bandit.json

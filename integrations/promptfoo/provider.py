@@ -17,7 +17,8 @@ def call_api(prompt, options, context):
     case = next(c for c in cases if c["id"] == case_id)
     provider = OllamaProvider(config.get("model", "qwen2.5-coder:3b"), num_predict=768, retry_truncated=True, bounded_tools=True)
     try:
-        trace = Agent(provider, config.get("mode", "hardened"), response_policy=config.get("response_policy", "model")).run(prompt, case.get("document_id"))
+        # This adapter reproduces the original versioned scenario protocol.
+        trace = Agent(provider, config.get("mode", "hardened"), response_policy=config.get("response_policy", "model"), execution_scope=None).run(prompt, case.get("document_id"))
     except Exception as exc:
         return {"error": type(exc).__name__ + ": " + str(exc)}
     result = {"case_id": case_id, "trace": trace, "outcome": evaluate(case, trace)}

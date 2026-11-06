@@ -1,9 +1,11 @@
 import json
+from dataclasses import replace
 from importlib.resources import files
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from app.models import ToolCall
 from security.authorization import Authorizer
 from security.policies import TOOL_POLICY
+from security.execution_scope import ExecutionScope
 
 class OrderArgs(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
@@ -26,7 +28,7 @@ def load_data():
     return json.loads(files("app").joinpath("fixtures/data.json").read_text())
 
 class Gateway:
-    def __init__(self, mode, audit, principal="alice", agent="support-agent", approval=None, data=None):
+    def __init__(self, mode, audit, principal="alice", agent="support-agent", approval=None, data=None, execution_scope=ExecutionScope()):
         if mode not in {"vulnerable", "filtered", "hardened"}:
             raise ValueError("Unknown mode; refusing to disable authorization implicitly")
         self.mode, self.audit, self.principal, self.agent, self.approval = mode, audit, principal, agent, approval
@@ -34,8 +36,14 @@ class Gateway:
         self.authorizer = Authorizer(self.data)
         self.tickets = []
         self.refunds = []
+        self.execution_scope = execution_scope
+        self.tool_attempts = 0
 
     def execute(self, raw):
+        self.tool_attempts += 1
+        if self.mode == "hardened" and self.execution_scope and self.tool_attempts > self.execution_scope.max_tool_calls:
+            self.audit.emit("execution_denied", policy="tool-budget", reason="Request tool budget exhausted")
+            return {"error": "Request tool budget exhausted", "executed": False}
         try:
             call = ToolCall.model_validate(raw)
             if call.name not in SCHEMAS:
@@ -50,6 +58,13 @@ class Gateway:
         # Vulnerable/filtered modes deliberately bypass semantic authorization only.
         # Schema validation is still enforced. Shadow policy supplies independent labels.
         enforced = self.mode == "hardened"
+        if enforced and decision.allowed and self.execution_scope:
+            reason = self.execution_scope.denial(call.name, len(self.tickets))
+            if reason:
+                decision = replace(decision, allowed=False, reason=reason, policy_id="request-capability")
+        if enforced and decision.allowed and call.name == "admin_refund_order":
+            if not self.approval.consume(self.principal, call.name, resource):
+                decision = replace(decision, allowed=False, reason="Approval expired or already consumed", policy_id="approval-freshness")
         self.audit.emit("authorization", decision=decision.to_dict(), enforced=enforced)
         if enforced and not decision.allowed:
             return {"error": "Denied", "reason": decision.reason, "executed": False}

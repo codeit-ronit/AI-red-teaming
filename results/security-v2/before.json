@@ -1,0 +1,31 @@
+{
+  "source_commit": "1d453ef784463aa23f448bf844fa34d7a4bdac87",
+  "method": "Deterministic compromised-model fixtures; no actual LLM inference",
+  "approval_replay": {
+    "executed_first": true,
+    "executed_second": true
+  },
+  "unrequested_write": {
+    "ticket_executions": 1
+  },
+  "request_isolation": {
+    "same_request_id": true,
+    "second_response_from_stale_receipt": "Order ORD-A100: shipped.",
+    "second_includes_first_execution": true
+  },
+  "source_hashes": {
+    "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app/agent.py": "2b76ea1762abcb33d895906dedfe600d4b84685526004cfb59d4701219fc595e",
+    "app/main.py": "11d46bdc08a741a803517193f2989162042cdcf3bf05728c3a2d59aebb90bc90",
+    "app/models.py": "c687eab1229c99807a0b99d3e7a17a8e64a596877bc947be878e94ec630f9d6a",
+    "app/providers.py": "8c124a7b2924d586a1506dfcc804b7e84d02a515a84e9e92c14332b802d9fbdf",
+    "app/tools.py": "5870241cd4f8e18354f2d79d9751bc8a1524422b14cd4ef5c6eb2f49d6353323",
+    "security/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "security/approvals.py": "14b26b411839e80a17fb134e4ab1db504a212acb7ba6bd031624be74ecb27e0c",
+    "security/audit.py": "e1f99516492ab4cfeddbd81c16e4272486449ae04d2442ec35260ff9c5028442",
+    "security/authorization.py": "4907b015550830f5ecee4e6f0e1c216dffa030f502d1d4c1b558a84bc1ca4c30",
+    "security/detector.py": "60999129b73b1c81f13b669140ea8d6d4844da3d0507b5642815ca72ed908396",
+    "security/policies.py": "ef1f015bb2ebb16f32f5873b67794d47748197ffd08e467ecd12588c54b823bf",
+    "security/response_contract.py": "6d586be615f1df9500b857caf987b3d2e90143b70d57ed291b9e4978ece21f49"
+  }
+}

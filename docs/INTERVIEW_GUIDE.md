@@ -1,3 +1,5 @@
+> November 6 follow-up: [research and boundary hardening](red-team-research.md) adds explicit ticket consent, budgets, approval expiry/one-use consumption and request isolation. The 102-execution findings below describe the earlier experiment. Current regression coverage is 76 tests plus 142 deterministic boundary checks; no broad public benchmark or adaptive campaign is claimed.
+
 > A [1:58 narrated terminal-replay demo](media/agentsec-ops-demo.mp4) is now available. It uses fresh actual executions and synthetic narration; it is not a desktop screen capture. See media/README.md and results/demo-v1 for evidence.
 
 > Final-hardening update: start with [the latest technical report](final-hardening-report.md),

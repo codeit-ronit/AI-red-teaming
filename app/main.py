@@ -12,6 +12,7 @@ from app.models import ChatRequest
 from app.providers import OllamaProvider
 from app.tools import Gateway, load_data
 from security.audit import Audit
+from security.execution_scope import ExecutionScope
 
 # Public fixture credentials are identifiers for this controlled lab, not real secrets.
 TOKENS = {"lab-alice-token": "alice", "lab-bob-token": "bob", "lab-admin-token": "admin"}
@@ -51,7 +52,9 @@ def create_app(mode=None, provider_factory=None, audit_path=None, response_polic
     def chat(body: ChatRequest, principal: str = Depends(identity)):
         provider = provider_factory() if provider_factory else OllamaProvider(os.environ.get("OLLAMA_MODEL", "qwen2.5-coder:3b"), num_predict=int(os.environ.get("AGENTSEC_NUM_PREDICT", "768")), retry_truncated=True, bounded_tools=True)
         try:
-            trace = Agent(provider, mode, principal, data=data, response_policy=response_policy).run(body.message, body.document_id)
+            scope = ExecutionScope(allow_ticket_creation=body.allow_ticket_creation)
+            trace = Agent(provider, mode, principal, data=data, response_policy=response_policy,
+                          execution_scope=scope).run(body.message, body.document_id)
         except httpx.HTTPError as exc:
             raise HTTPException(503, "Local model unavailable") from exc
         record_trace(trace)

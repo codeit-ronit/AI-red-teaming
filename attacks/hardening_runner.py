@@ -46,7 +46,8 @@ def run(output, configurations, case_ids=None):
         for config in configurations:
             mode,policy=CONFIGS[config]
             print(config,case['id'],flush=True)
-            agent=Agent(provider,mode,response_policy=policy,tool_observations=case['tool_observations'])
+            # Reproduce the historical protocol, not the later request-capability layer.
+            agent=Agent(provider,mode,response_policy=policy,tool_observations=case['tool_observations'],execution_scope=None)
             started=time.perf_counter()
             try: trace=agent.run(case['input'],case['document_id'])
             except Exception as exc:

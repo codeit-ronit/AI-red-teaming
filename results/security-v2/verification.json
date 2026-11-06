@@ -1,0 +1,21 @@
+{
+  "method": "No new live-model/public/adaptive benchmark; deterministic compromised-model and boundary checks only",
+  "regression_tests_passed": 76,
+  "live_model_test_deselected": 1,
+  "boundary_checks": {
+    "checks": 142,
+    "passed": 142,
+    "failed": 0
+  },
+  "historical_result_hashes_preserved": 49,
+  "static_findings": 0,
+  "secret_findings": 0,
+  "runtime_dependency_findings": 0,
+  "configuration": "Scoped defaults; explicit None for legacy protocol callers; process-local approval replay prevention only",
+  "artifacts": {
+    "results/security-v2/before.json": "4622feb1914f6aa6329bee482ed7837104f17646ae9a0a103ee6cafd1ddace28",
+    "results/security-v2/after-final.json": "8846b80a174db00c79c7ba4c720937031a999e1adcff5b73e45dd83bc13abe12",
+    "results/security-v2/verified-boundaries/report.json": "a1f2acfcc4c8bee14ad8e2ac0d03c672027e6f3c12df832a0becee0400f10583",
+    "results/security-v2/pytest.xml": "a98bf38ff131f90254a82ccc1e3c47cc04505ee39c99686d18cd420a7ad04490"
+  }
+}

@@ -1,5 +1,7 @@
 # A model can follow the attacker while the application protects the user
 
+> November 6 follow-up: [research and execution-boundary hardening](red-team-research.md) adds request capabilities, tool/write budgets, single-use expiring fixture approvals and request isolation. Earlier experiment results below remain historical.
+
 *Research case study draft for adaptation into an article. All experiments use a controlled
 Northwind Retail lab, synthetic data and a local model. No production incident is claimed.*
 

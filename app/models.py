@@ -18,3 +18,4 @@ class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     message: str = Field(min_length=1, max_length=6000)
     document_id: str | None = Field(default=None, max_length=80)
+    allow_ticket_creation: bool = Field(default=False, strict=True)

@@ -49,7 +49,8 @@ def run(provider="scripted", model="qwen2.5-coder:3b", modes=("vulnerable", "fil
                          "http_status": response.status_code, "duration_seconds": time.perf_counter()-start}
             else:
                 adapter = live if live else ScriptedProvider(case["fixture_turns"])
-                agent = Agent(adapter, mode)
+                # Explicit historical protocol: per-request capabilities were added later.
+                agent = Agent(adapter, mode, execution_scope=None)
                 try:
                     trace = agent.run(case["input"], case.get("document_id"))
                 except Exception as exc:

@@ -1,5 +1,8 @@
 # Security findings index
 
+For the subsequent request-capability, approval replay and request-isolation findings, see
+[the security-boundary follow-up](red-team-research.md). The campaign below is historical.
+
 Validated observations and paired retests are generated in
 [the model assessment](../results/ollama-qwen/report.md) and
 [its machine-readable report](../results/ollama-qwen/report.json).

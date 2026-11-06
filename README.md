@@ -21,6 +21,16 @@ confident answer cannot conceal what happened underneath.
 
 **Stack:** Python · FastAPI · Pydantic · Ollama · Pytest · Promptfoo · PyRIT · Garak · GitHub Actions
 
+## Broader security testing follow-up
+
+A [research review and boundary audit](docs/red-team-research.md) found gaps beyond prompt
+wording: reusable fixture approvals, stale receipts on Agent reuse, and unwanted ticket
+writes during read-only tasks. The follow-up adds expiring single-use approvals, fresh
+request state, explicit ticket consent, and tool/write budgets. **76 regression tests and
+142 deterministic boundary checks pass.** These are separate from the historical
+102-execution live-model study below; a full public benchmark and adaptive attack campaign
+remain future work.
+
 ## See it working in two minutes
 
 [![Watch the AgentSec Ops demonstration](docs/media/demo-preview.png)](docs/media/agentsec-ops-demo.mp4)
@@ -145,7 +155,7 @@ uv run --frozen pytest -m 'not model'
 uv run --frozen python -m attacks.runner --output results/local-fixture
 ```
 
-The verified regression suite contains **54 passing tests**. Fixture results exercise known
+The current regression suite contains **76 passing tests**, including the original 54. Fixture results exercise known
 model proposals; live-model findings come from the separate Ollama experiments.
 
 ### Run the actual model and API

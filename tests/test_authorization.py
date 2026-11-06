@@ -3,6 +3,7 @@ from app.tools import Gateway, load_data
 from security.audit import Audit
 from security.authorization import Authorizer
 from security.approvals import Approval
+from security.execution_scope import ExecutionScope
 
 pytestmark = [pytest.mark.unit, pytest.mark.security]
 
@@ -57,7 +58,7 @@ def test_action_cannot_be_spoofed():
     assert not decision.allowed
 
 def test_inventory_and_ticket():
-    gw = gateway()
+    gw = Gateway("hardened", Audit(), execution_scope=ExecutionScope(allow_ticket_creation=True))
     assert not execute(gw,"get_asset_inventory",asset_id="INTERNAL-1")["executed"]
     assert execute(gw,"get_asset_inventory",asset_id="PUBLIC-1")["executed"]
     assert execute(gw,"create_support_ticket",description="Help")["result"]["owner"] == "alice"
