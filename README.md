@@ -29,7 +29,8 @@ writes during read-only tasks. The follow-up adds expiring single-use approvals,
 request state, explicit ticket consent, and tool/write budgets. **76 regression tests and
 142 deterministic boundary checks pass.** These are separate from the historical
 102-execution live-model study below; a full public benchmark and adaptive attack campaign
-remain future work.
+remain future work. See the [τ²-bench integration assessment](docs/tau2-bench-assessment.md)
+for a concrete external-benchmark proposal and inspected task data.
 
 ## See it working in two minutes
 
