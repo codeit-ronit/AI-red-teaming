@@ -170,7 +170,8 @@ uv run --frozen pytest -m 'not model'
 uv run --frozen python -m attacks.runner --output results/local-fixture
 ```
 
-The current regression suite contains **76 passing tests**, including the original 54. Fixture results exercise known
+The current regression suite contains **85 passing tests**, including the original 54,
+security-boundary follow-ups, and dashboard checks. Fixture results exercise known
 model proposals; live-model findings come from the separate Ollama experiments.
 
 ### Run the actual model and API
