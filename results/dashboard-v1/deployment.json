@@ -1,0 +1,12 @@
+{
+  "url": "https://agentsec-ops-lab-ronit.cozychess16.chatgpt.site",
+  "status": "succeeded",
+  "access_mode": "public",
+  "project_id": "appgprj_6af299d1a98c819197bba21f78d898a0",
+  "version_id": "appgprj_6af299d1a98c819197bba21f78d898a0~appgver_d0b5c76d222c81918ced3bc5d634f4e3",
+  "version_number": 1,
+  "deployment_id": "appgdep_6af29d2f0c8c81919b453669d5d1b8e9",
+  "site_source_commit": "f3d4c478ff99d1090d79c4b95ca06664c6ef6914",
+  "archive_content_hash": "sha256:e72fd08b3327518b8ef5e4a2424e63afe216c34d84011d35d4d864f46d7c16c5",
+  "method": "Static evidence explorer; no hosted model or Python execution; local FastAPI dashboard separately supports deterministic checks"
+}

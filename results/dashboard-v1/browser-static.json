@@ -1,0 +1,10 @@
+{
+  "runtime": "snapshot",
+  "viewport": [
+    390,
+    844
+  ],
+  "case_search": true,
+  "execution_button": "Shows local reproduction, does not make API/model calls",
+  "mobile_overflow": false
+}

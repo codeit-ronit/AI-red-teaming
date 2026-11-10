@@ -1,0 +1,43 @@
+{
+  "regression_tests": 85,
+  "live_model_test_deselected": 1,
+  "local_boundary_checks": 142,
+  "static_findings": 0,
+  "secret_findings": 0,
+  "historical_hashes_preserved": 49,
+  "browser_local": {
+    "desktop": [
+      1512,
+      1100
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "case_search": true,
+    "benign_filter": 16,
+    "attack_filter": 18,
+    "actual_before_after_outputs": true,
+    "local_boundary_checks": 142,
+    "mobile_overflow": false,
+    "page_errors": []
+  },
+  "browser_static": {
+    "runtime": "snapshot",
+    "viewport": [
+      390,
+      844
+    ],
+    "case_search": true,
+    "execution_button": "Shows local reproduction, does not make API/model calls",
+    "mobile_overflow": false
+  },
+  "method": "Dashboard checks; no new model inference or benchmark campaign",
+  "bundle_hashes": {
+    "dashboard/dist/assets/app.js": "91f191d3a23385e2cb0c8fa26410efd5cd0581d3c3baa4f4f5fd980f90761ff9",
+    "dashboard/dist/assets/mark.svg": "e341a0361f8456fab42e50f8389bb313f9f822097393774d15c5a58c3169745e",
+    "dashboard/dist/assets/styles.css": "2cc886d228c37bbc2b84b9dc02eb3ffddc13ee6a4fc44ab080ff02ede9ee4a89",
+    "dashboard/dist/data/experiment.json": "d678de30145707fc7ae558c67c7066f6fd5e28fab7c027639d6e62b875a37e1a",
+    "dashboard/dist/index.html": "553dae6e216ddae9deb0c95710fac2f4b4b7434872748d28f881f7d8ae5026a3"
+  }
+}

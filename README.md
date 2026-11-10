@@ -32,6 +32,20 @@ request state, explicit ticket consent, and tool/write budgets. **76 regression 
 remain future work. See the [τ²-bench integration assessment](docs/tau2-bench-assessment.md)
 for a concrete external-benchmark proposal and inspected task data.
 
+## Interactive security dashboard
+
+**[Open the public dashboard](https://agentsec-ops-lab-ronit.cozychess16.chatgpt.site)** · [Local setup and interview walkthrough](docs/dashboard.md)
+
+[![AgentSec Ops dashboard](docs/media/dashboard-overview.png)](https://agentsec-ops-lab-ronit.cozychess16.chatgpt.site)
+
+Search all 34 scenarios, compare the three configurations, and inspect selected tool and
+authorization events. The hosted dashboard explores recorded evidence; the local FastAPI
+version can execute the current 142 deterministic boundary checks. No model API key is needed.
+
+```sh
+uv run --frozen uvicorn app.dashboard:app --host 127.0.0.1 --port 8010
+```
+
 ## See it working in two minutes
 
 [![Watch the AgentSec Ops demonstration](docs/media/demo-preview.png)](docs/media/agentsec-ops-demo.mp4)

@@ -1,0 +1,17 @@
+{
+  "desktop": [
+    1512,
+    1100
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "case_search": true,
+  "benign_filter": 16,
+  "attack_filter": 18,
+  "actual_before_after_outputs": true,
+  "local_boundary_checks": 142,
+  "mobile_overflow": false,
+  "page_errors": []
+}

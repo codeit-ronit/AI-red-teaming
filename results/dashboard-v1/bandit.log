@@ -1,0 +1,7 @@
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[tester]	WARNING	nosec encountered (B603), but no failed test on file scripts/capture_demo.py:33
+[tester]	WARNING	nosec encountered (B603), but no failed test on file scripts/capture_demo.py:33
+[json]	INFO	JSON output written to file: results/dashboard-v1/bandit.json
